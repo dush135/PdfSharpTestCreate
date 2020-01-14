@@ -4,41 +4,51 @@
              xmlns:local="clr-namespace:TestPDF"
              xmlns:pdf="clr-namespace:PdfSharp.Xamarin.Forms;assembly=PdfSharp.Xamarin.Forms"
              x:Class="TestPDF.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:PDFSampleListRendererDelegate  x:Key="PDFSampleListRendererDelegate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
 
         <Grid x:Name="mainGrid">
 
-            <StackLayout Margin="0,0,0,5">
+            <ScrollView>
 
-                <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18" VerticalOptions="Center" />
+                <StackLayout Margin="0,0,0,5">
 
-                <ListView x:Name="rListView"
+                    <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18" VerticalOptions="Center" />
+
+                    <!--<ListView x:Name="rListView"
                                       Footer=""
                                       BackgroundColor="White"
                                       SeparatorVisibility="None"
                                       HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell IsEnabled="false">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
 
-                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal">
 
-                                    <Label Text="{Binding Names}" Margin="0,0,10,0"/>
-                                    <Label Text="{Binding Ages}"/>
+                                        <Label Text="{Binding Names}" Margin="0,0,10,0"/>
+                                        <Label Text="{Binding Ages}"/>
 
-                                </StackLayout>
-
-
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-                <Button Text="click" Clicked="Button_Clicked"/>
-
-            </StackLayout>
+                                    </StackLayout>
 
 
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>-->
+
+                    <ListView pdf:PdfRendererAttributes.ListRendererDelegate="{DynamicResource PDFSampleListRendererDelegate}" HeightRequest="150"/>
+
+                    <Button Text="click" Clicked="Button_Clicked"/>
+
+                </StackLayout>
+
+            </ScrollView>
+            
         </Grid>
 
     </ContentPage.Content>

@@ -19,7 +19,8 @@ namespace TestPDF
             Cus.Add(ss1);
             Cus.Add(ss2);
 
-            rListView.ItemsSource = Cus;
+            //rListView.ItemsSource = Cus;
+            new PDFSampleListRendererDelegate();
 
         }
 
